@@ -1,0 +1,29 @@
+# Environment and secrets
+.env
+.env.*
+!.env.example
+
+# Local editor and OS files
+.DS_Store
+Thumbs.db
+Desktop.ini
+.vscode/
+.idea/
+
+# Logs and temporary files
+*.log
+tmp/
+temp/
+.cache/
+
+# Build outputs
+dist/
+build/
+out/
+coverage/
+node_modules/
+
+# Private working materials
+private/
+local/
+drafts-private/
