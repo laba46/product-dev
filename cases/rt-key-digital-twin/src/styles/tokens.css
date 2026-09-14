@@ -1,0 +1,63 @@
+﻿:root {
+  /* === Colors === */
+  /* rt-design-system.md §3 colors */
+  --color-primary: #7700ff;
+  --color-accent: #ff4f12;
+  --color-background: #f5f6fb;
+  --color-surface: #ffffff;
+  --color-surface-muted: #f5f6fb;
+  --color-surface-inverse: #64748b;
+  --color-surface-overlay: rgba(0, 0, 0, 0.2);
+  --color-white-muted: rgba(255, 255, 255, 0.9);
+  --color-text-primary: #12172a;
+  --color-text-secondary: #72788b;
+  --color-text-muted: #a7acb9;
+  --color-border: #e6e8f0;
+  --color-border-subtle: #eef0f5;
+  --color-border-strong: #d8c5ff;
+  --color-warning: #f59e0b;
+  --color-success: #16a34a;
+  --color-error: #dc2626;
+
+  /* === Spacing === */
+  /* rt-design-system.md §3 spacing */
+  --spacing-xxs: 2px;
+  --spacing-xs: 4px;
+  --spacing-compact: 6px;
+  --spacing-sm: 8px;
+  --spacing-card: 10px;
+  --spacing-md: 12px;
+  --spacing-lg: 16px;
+  --spacing-xl: 24px;
+  --spacing-2xl: 32px;
+  --spacing-section: 14px;
+  --spacing-layout-x: 16px;
+  --spacing-layout-top: 12px;
+  --spacing-layout-bottom: 112px;
+
+  /* === Border radius === */
+  /* rt-design-system.md §3 radius */
+  --radius-sm: 4px;
+  --radius-md: 10px;
+  --radius-lg: 12px;
+
+  /* === Typography === */
+  /* rt-design-system.md §3 typography */
+  --font-size-caption: 12px;
+  --font-size-body-sm: 14px;
+  --font-size-body: 16px;
+  --font-size-body-lg: 18px;
+  --font-size-section: 16px;
+  --font-size-title: 32px;
+  --font-size-hero: 40px;
+  --font-size-icon: 18px;
+  /* rt-brand-reference.md: заголовки — плотный, основной текст — свободный */
+  --line-height-tight: 1.25;
+  --line-height-normal: 1.5;
+
+  /* === Sizes === */
+  --layout-mobile-max-width: 390px;
+  --size-banner-min-height: 80px;
+  --size-camera-card-height: 120px;
+  --size-banner-accent-width: 80px;
+}

@@ -1,0 +1,128 @@
+@import "./styles/tokens.css";
+@import "tailwindcss";
+
+@theme {
+  /* Colors — raw values (имена совпадают с tokens.css, var() создаёт цикл) */
+  --color-primary: #7700ff;
+  --color-accent: #ff4f12;
+  --color-background: #f5f6fb;
+  --color-surface: #ffffff;
+  --color-surface-muted: #f5f6fb;
+  --color-surface-inverse: #64748b;
+  --color-surface-overlay: rgba(0, 0, 0, 0.2);
+  --color-surface-soft: rgba(255, 255, 255, 0.9);
+  --color-text-primary: #12172a;
+  --color-text-secondary: #72788b;
+  --color-text-muted: #a7acb9;
+  --color-border: #e6e8f0;
+  --color-border-subtle: #eef0f5;
+  --color-border-strong: #d8c5ff;
+  --color-warning: #f59e0b;
+  --color-success: #16a34a;
+  --color-error: #dc2626;
+  /* Служебные цвета компонентов */
+  --color-banner-secondary: rgba(255, 255, 255, 0.75);
+  --color-camera-surface: #1e293b;
+  --color-banner-accent: #7e22ce;
+
+  /* Spacing — raw values */
+  --spacing-xxs: 2px;
+  --spacing-xs: 4px;
+  --spacing-compact: 6px;
+  --spacing-sm: 8px;
+  --spacing-card: 10px;
+  --spacing-md: 12px;
+  --spacing-lg: 16px;
+  --spacing-xl: 24px;
+  --spacing-2xl: 32px;
+  --spacing-section: 14px;
+  --spacing-layout-x: 16px;
+  --spacing-layout-top: 12px;
+  --spacing-layout-bottom: 112px;
+  /* size tokens через spacing — покрывают h-*, w-*, min-h-*, max-w-* */
+  --spacing-banner: 80px;
+  --spacing-camera-card: 120px;
+  --spacing-banner-accent: 80px;
+
+  /* Border radius — raw values */
+  --radius-sm: 4px;
+  --radius-md: 10px;
+  --radius-lg: 12px;
+
+  /* Font sizes — var() безопасен: имена разные (--text-* vs --font-size-*) */
+  --text-caption: var(--font-size-caption);
+  --text-caption--line-height: var(--line-height-tight);
+  --text-body-sm: var(--font-size-body-sm);
+  --text-body-sm--line-height: var(--line-height-normal);
+  --text-body: var(--font-size-body);
+  --text-body--line-height: var(--line-height-normal);
+  --text-body-lg: var(--font-size-body-lg);
+  --text-body-lg--line-height: var(--line-height-tight);
+  --text-section: var(--font-size-section);
+  --text-section--line-height: var(--line-height-tight);
+  --text-title: var(--font-size-title);
+  --text-title--line-height: var(--line-height-tight);
+  --text-hero: var(--font-size-hero);
+  --text-hero--line-height: 1;
+  --text-icon: var(--font-size-icon);
+  --text-icon--line-height: 1;
+
+  /* max-w-mobile — spacing namespace покрывает max-w-* в v4 */
+  --spacing-mobile: 390px;
+}
+
+/* text-app-* — системные утилиты типографики (rt-design-system.md §3) */
+@utility text-app-hero {
+  font-size: var(--font-size-hero);
+  line-height: var(--line-height-tight);
+}
+
+@utility text-app-section {
+  font-size: var(--font-size-section);
+  line-height: var(--line-height-tight);
+}
+
+@utility text-app-body-lg {
+  font-size: var(--font-size-body-lg);
+  line-height: var(--line-height-tight);
+}
+
+@utility text-app-body {
+  font-size: var(--font-size-body);
+  line-height: var(--line-height-normal);
+}
+
+@utility text-app-body-tight {
+  font-size: var(--font-size-body);
+  line-height: var(--line-height-tight);
+}
+
+@utility text-app-body-sm {
+  font-size: var(--font-size-body-sm);
+  line-height: var(--line-height-normal);
+}
+
+@utility text-app-card-title {
+  font-size: 17px;
+  line-height: var(--line-height-tight);
+}
+
+@utility text-app-subtitle {
+  font-size: 15px;
+  line-height: var(--line-height-normal);
+}
+
+@utility text-app-caption {
+  font-size: var(--font-size-caption);
+  line-height: var(--line-height-tight);
+}
+
+@utility text-app-label {
+  font-size: 13px;
+  line-height: var(--line-height-tight);
+}
+
+@utility text-app-micro {
+  font-size: 10px;
+  line-height: 1;
+}

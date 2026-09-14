@@ -11,9 +11,10 @@
 
 ## Текущий фокус
 
-Первый кейс в работе:
+Кейсы в работе:
 
 - `cases/dwtech-shipment-card/`
+- `cases/rt-key-digital-twin/`
 
 ## Правило публикации
 
