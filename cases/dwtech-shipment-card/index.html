@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Shipment Card MVP v0.2</title>
+    <link rel="stylesheet" href="./styles.css">
+  </head>
+  <body>
+    <main class="app-shell" data-app="shipment-card">
+      <header class="page-header">
+        <div class="title-stack">
+          <p class="eyebrow">DWTECH shipment workflow</p>
+          <div class="title-row">
+            <h1>TEST-2026-001</h1>
+            <span class="version-pill" data-prototype-version>v0.2</span>
+          </div>
+          <p class="lead">MVP-карточка поставки как рабочий центр логиста: комплектность, следующий шаг и структура отгрузки на одном экране.</p>
+        </div>
+        <aside class="decision-panel" aria-label="Сводка решения">
+          <div>
+            <span class="caption">Решение сейчас</span>
+            <strong>Не отправлять запрос агенту</strong>
+          </div>
+          <p>Не хватает AWB / HAWB и драфта декларации. Следующий шаг на стороне инициатора поставки.</p>
+        </aside>
+      </header>
+
+      <section class="status-strip" aria-label="Операционная сводка">
+        <div class="status-cell">
+          <span class="caption">Текущий этап</span>
+          <strong>Проверка комплекта</strong>
+        </div>
+        <div class="status-cell">
+          <span class="caption">На чьей стороне мяч</span>
+          <strong>Инициатор поставки</strong>
+        </div>
+        <div class="status-cell">
+          <span class="caption">Документы</span>
+          <strong><span data-found-count>3</span> / <span data-total-count>5</span> готовы</strong>
+        </div>
+        <div class="status-cell risk">
+          <span class="caption">Риск</span>
+          <strong>Нельзя считать доставку</strong>
+        </div>
+      </section>
+
+      <section class="workspace-grid" aria-label="Карточка поставки">
+        <article class="panel panel-primary" data-story-section="completeness" data-story-id="US-01">
+          <header class="panel-header">
+            <div>
+              <span class="story-tag">US-01</span>
+              <h2 data-section-title>Комплектность</h2>
+            </div>
+            <span class="state-pill warning" data-completeness-state>Неполный комплект</span>
+          </header>
+
+          <p class="panel-message">За 1 минуту видно, какие данные можно отдавать агенту, а что надо запросить у инициатора.</p>
+
+          <div class="document-table" aria-label="Обязательные документы">
+            <div class="document-row table-head">
+              <span>Документ</span>
+              <span>Статус</span>
+              <span>Готово</span>
+            </div>
+            <label class="document-row">
+              <span data-required-document>Инвойс</span>
+              <span class="status-ok">Есть</span>
+              <input type="checkbox" data-document-check checked aria-label="Инвойс есть">
+            </label>
+            <label class="document-row">
+              <span data-required-document>Упаковочный лист</span>
+              <span class="status-ok">Есть</span>
+              <input type="checkbox" data-document-check checked aria-label="Упаковочный лист есть">
+            </label>
+            <label class="document-row">
+              <span data-required-document>Описание товара</span>
+              <span class="status-ok">Есть</span>
+              <input type="checkbox" data-document-check checked aria-label="Описание товара есть">
+            </label>
+            <label class="document-row is-missing">
+              <span data-required-document data-missing-item>AWB / HAWB</span>
+              <span class="status-missing">Нет</span>
+              <input type="checkbox" data-document-check aria-label="AWB / HAWB есть">
+            </label>
+            <label class="document-row is-missing">
+              <span data-required-document data-missing-item>Драфт декларации</span>
+              <span class="status-missing">Проверить</span>
+              <input type="checkbox" data-document-check aria-label="Драфт декларации есть">
+            </label>
+          </div>
+
+          <div class="action-band">
+            <div>
+              <span class="caption">Следующее действие</span>
+              <p data-next-action>Запросить недостающие данные у инициатора поставки.</p>
+            </div>
+            <button type="button" data-send-agent-request disabled>Отправить запрос агенту</button>
+          </div>
+        </article>
+
+        <article class="panel" data-story-section="workflow" data-story-id="US-02">
+          <header class="panel-header">
+            <div>
+              <span class="story-tag">US-02</span>
+              <h2 data-section-title>Workflow</h2>
+            </div>
+            <span class="state-pill active" data-current-stage>Проверка комплекта</span>
+          </header>
+
+          <div class="owner-box">
+            <span class="caption">Следующий шаг</span>
+            <strong data-next-owner>Инициатор поставки</strong>
+            <p>Прислать AWB / HAWB и подтвердить, какие позиции входят в текущую отгрузку.</p>
+          </div>
+
+          <ol class="timeline" aria-label="Этапы поставки">
+            <li class="done">
+              <span></span>
+              <div>
+                <strong>Получены базовые документы</strong>
+                <p>Инвойс отправлен агенту. Упаковочный лист отправлен агенту.</p>
+              </div>
+            </li>
+            <li class="current">
+              <span></span>
+              <div>
+                <strong>Проверка комплекта</strong>
+                <p>Описание товара получено. AWB / HAWB и драфт декларации ожидаются.</p>
+              </div>
+            </li>
+            <li>
+              <span></span>
+              <div>
+                <strong>Расчет стоимости доставки</strong>
+                <p>Доступен после закрытия missing items.</p>
+              </div>
+            </li>
+          </ol>
+
+          <div class="activity-log" aria-label="Activity log">
+            <div data-activity-item>
+              <time>10:20</time>
+              <span>Инвойс отправлен агенту</span>
+            </div>
+            <div data-activity-item>
+              <time>11:05</time>
+              <span>Описание товара получено</span>
+            </div>
+            <div data-activity-item>
+              <time>11:40</time>
+              <span>Запрошены AWB / HAWB и драфт декларации</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="panel wide-panel" data-story-section="shipment-structure" data-story-id="US-03">
+          <header class="panel-header">
+            <div>
+              <span class="story-tag">US-03</span>
+              <h2 data-section-title>Структура отгрузки</h2>
+            </div>
+            <span class="state-pill neutral" data-shipment-type>Сборный инвойс</span>
+          </header>
+
+          <div class="structure-layout">
+            <section class="role-map" data-counterparty-roles aria-label="Роли контрагентов">
+              <div>
+                <span class="caption">Плательщик</span>
+                <strong>Trading partner A</strong>
+                <p>Юридическая сторона для сверки финансовых документов.</p>
+              </div>
+              <div>
+                <span class="caption">Фактический отправитель</span>
+                <strong>Factory partner B</strong>
+                <p>Физическая сторона отгрузки для сверки накладной и декларации.</p>
+              </div>
+              <div>
+                <span class="caption">Получатель</span>
+                <strong>Internal warehouse</strong>
+                <p>Принимающая сторона без реальных адресов и внутренних ID.</p>
+              </div>
+            </section>
+
+            <section class="positions" aria-label="Позиции отгрузки">
+              <div class="position-row table-head">
+                <span>Позиция</span>
+                <span>Едет</span>
+                <span>Остаток</span>
+                <span>Риск сверки</span>
+              </div>
+              <div class="position-row" data-physical-item>
+                <span>Контроллер доступа</span>
+                <span>60 шт</span>
+                <span data-partial-balance>остаток 40 шт</span>
+                <span class="risk-note">частичная позиция</span>
+              </div>
+              <div class="position-row" data-physical-item>
+                <span>Модуль связи</span>
+                <span>25 шт</span>
+                <span>0 шт</span>
+                <span>готово к сверке</span>
+              </div>
+              <div class="position-row" data-physical-item>
+                <span>Крепежный комплект</span>
+                <span>25 шт</span>
+                <span>0 шт</span>
+                <span>сверить с packing list</span>
+              </div>
+            </section>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <script src="./app.js"></script>
+  </body>
+</html>

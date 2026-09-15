@@ -1,0 +1,30 @@
+{
+  "name": "product-dev",
+  "version": "1.0.0",
+  "description": "Публичный репозиторий портфолио для кейсов по Product Management, workflow, operations и automation.",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "bdd": "cucumber-js \"features/**/*.feature\" --tags \"not @draft\"",
+    "bdd:draft": "cucumber-js \"features/**/*.feature\" --tags \"@draft\"",
+    "test": "npm run bdd"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/laba46/product-dev.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/laba46/product-dev/issues"
+  },
+  "homepage": "https://github.com/laba46/product-dev#readme",
+  "devDependencies": {
+    "@cucumber/cucumber": "^13.2.1",
+    "jsdom": "^29.1.1"
+  }
+}
